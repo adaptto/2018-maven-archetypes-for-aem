@@ -59,11 +59,11 @@ Open application on author instance: http://localhost:4502/editor.html/content/a
   <distributionManagement>
     <repository>
       <id>adaptto</id>
-      <url>http://maven-repo.adapt.to:8080/repository/maven-releases/</url>
+      <url>http://52.215.173.143:8080/repository/maven-releases/</url>
     </repository>
     <snapshotRepository>
       <id>adaptto-snapshots</id>
-      <url>http://maven-repo.adapt.to:8080/repository/maven-snapshots/</url>
+      <url>http://52.215.173.143:8080/repository/maven-snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
  ```
