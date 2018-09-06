@@ -23,7 +23,7 @@ Demo Steps
 mvn archetype:generate -DinteractiveMode=false \
   -DarchetypeGroupId=io.wcm.maven.archetypes \
   -DarchetypeArtifactId=io.wcm.maven.archetypes.aem \
-  -DarchetypeVersion=2.0.0 \
+  -DarchetypeVersion=2.0.1-SNAPSHOT \
   -DprojectName=adaptToDemo2018 \
   -DgroupId=to.adapt \
   -DartifactId=to.adapt.demoapp \
@@ -76,20 +76,22 @@ Put the following files in the directory where you excute the archetype command:
 mvn org.apache.maven.plugins:maven-archetype-plugin:3.0.2-180806-A536:generate -DinteractiveMode=false \
   -DarchetypeGroupId=io.wcm.maven.archetypes \
   -DarchetypeArtifactId=io.wcm.maven.archetypes.aem-confmgmt \
-  -DarchetypeVersion=1.0.0 \
+  -DarchetypeVersion=1.0.1-SNAPSHOT \
   -DconfigurationManagementName=adaptto-demo-2018 \
   -DprojectName=adaptToDemo2018 \
   -DgroupId=to.adapt \
   -DartifactId=to.adapt.demoapp \
   -Dversion=1.0.0-SNAPSHOT \
+  -DawsMachineSize=large \
   -DoptionAnsible=y \
   -DoptionTerraform=y \
   -DoptionVagrant=y \
   -DansibleVaultPassword=YOUR_PASSWORD \
   -DaemAdminPassword=YOUR_PASSWORD \
-  -DmavenRepositoryUrl=http://maven-repo.adapt.to:8080/repository/maven-public/ \
+  -DmavenRepositoryUrl=http://52.215.173.143:8080/repository/adaptto/ \
   -DmavenRepositoryUser=adaptto \
-  -DmavenRepositoryPassword=YOUR_PASSWORD
+  -DmavenRepositoryPassword=YOUR_PASSWORD \
+  -DjavaDownloadBaseUrl=http://52.215.173.143/otn-pub/java
 ```
 
 ## Create machines via terraform (AWS or Vagrant)
