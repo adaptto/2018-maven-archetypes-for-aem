@@ -63,7 +63,7 @@ Build and deploy to local AEM instance using `build-deploy.sh` (the first "npm i
 Open application on author instance: http://localhost:4502/editor.html/content/adaptToDemo2018/en.html
 
 
-## Generate AEM configuration management project by archetype (AWS)
+## Generate AEM configuration management project by archetype (AWS or Vagrant)
 
 Put the following files in the directory where you excute the archetype command:
 
@@ -82,7 +82,7 @@ mvn org.apache.maven.plugins:maven-archetype-plugin:3.0.2-180806-A536:generate -
   -Dversion=1.0.0-SNAPSHOT \
   -DoptionAnsible=y \
   -DoptionTerraform=y \
-  -DoptionVagrant=n \
+  -DoptionVagrant=y \
   -DansibleVaultPassword=YOUR_PASSWORD \
   -DaemAdminPassword=YOUR_PASSWORD \
   -DmavenRepositoryUrl=http://maven-repo.adapt.to:8080/repository/maven-public/ \
@@ -90,7 +90,7 @@ mvn org.apache.maven.plugins:maven-archetype-plugin:3.0.2-180806-A536:generate -
   -DmavenRepositoryPassword=YOUR_PASSWORD
 ```
 
-## Create machines via terraform
+## Create machines via terraform (AWS or Vagrant)
 
 Create terraform state and AWS machines.
 
@@ -106,14 +106,14 @@ terraform plan -out infrastructure
 terraform apply infrastructure
 ```
 
-## Run Ansible playbook to setup PROD machines
+## Run Ansible playbook to setup PROD machines (AWS or Vagrant)
 
 ```
 cd ansible
 ansible-playbook playbook-setup-prod.yml
 ```
 
-## Put host names for testing in your local host file
+## Put host names for testing in your local host file (local)
 
 As generated to `ansible/files/tmp/hosts`.
 
