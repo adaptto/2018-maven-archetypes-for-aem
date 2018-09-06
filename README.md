@@ -75,7 +75,7 @@ Deploy generated AEM application to Maven repository with `npm clean deploy`.
 
 Put the following files in the directory where you excute the archetype command:
 
-* `license.properties` - AEM license files
+* `license.properties` - AEM license file
 * `id_rsa.pub` - public key that is allowed to connect via SSH to AWS machines
 
 _**Please note:** The Maven Archetype Plugin from Maven Central is missing the required feature [ARCHETYPE-536](https://issues.apache.org/jira/browse/ARCHETYPE-536) - until this feature is released use the unofficial version `3.0.2-180806-A536` as shown below. This is available in the "wcm.io Intermediate Release Repository" described in [wcm.io Maven Repositories](http://wcm.io/maven.html)._
@@ -103,8 +103,6 @@ mvn org.apache.maven.plugins:maven-archetype-plugin:3.0.2-180806-A536:generate -
 ```
 
 ## 4. Create machines via terraform (AWS Control Host)
-
-Create terraform state and AWS machines.
 
 ```
 cd terraform/terraform-state
