@@ -87,7 +87,7 @@ mvn org.apache.maven.plugins:maven-archetype-plugin:3.0.2-180806-A536:generate -
   -DoptionVagrant=y \
   -DansibleVaultPassword=YOUR_PASSWORD \
   -DaemAdminPassword=YOUR_PASSWORD \
-  -DmavenRepositoryUrl=http://maven-repo.adapt.to:8080/repository/maven-public/ \
+  -DmavenRepositoryUrl=http://52.215.173.143:8080/repository/adaptto/ \
   -DmavenRepositoryUser=adaptto \
   -DmavenRepositoryPassword=YOUR_PASSWORD
 ```
