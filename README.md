@@ -44,6 +44,8 @@ mvn archetype:generate -DinteractiveMode=false \
 
 Build and deploy to local AEM instance using `build-deploy.sh` (the first "npm install" will take a while).
 
+Open application on author instance: http://localhost:4502/editor.html/content/adaptToDemo2018/en.html
+
 
 ## Add distribution management to deploy to our Maven Repository (local)
 
@@ -60,7 +62,7 @@ Build and deploy to local AEM instance using `build-deploy.sh` (the first "npm i
   </distributionManagement>
  ```
 
-Open application on author instance: http://localhost:4502/editor.html/content/adaptToDemo2018/en.html
+Deploy generated AEM application to Maven repository with `npm clean deploy`.
 
 
 ## Generate AEM configuration management project by archetype (AWS or Vagrant)
@@ -115,7 +117,7 @@ ansible-playbook playbook-setup-prod.yml
 
 ## Put host names for testing in your local host file (local)
 
-As generated to `ansible/files/tmp/hosts`.
+As generated to `ansible/files/tmp/hosts` (file to be found on control host - AWS or Vagrant).
 
 
 ## Ready!
