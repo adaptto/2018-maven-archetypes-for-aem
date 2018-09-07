@@ -17,13 +17,19 @@ Requirements
 Demo Steps
 ----------
 
-## Create AEM project by archetype (local)
+Please note:
+
+* These demo steps expect an Ansible control host set up read-to-use in AWS. If you want to set up a control host in your environment follow the steps in the REAMDE file contained in the AEM configuration management project generated in step 3.
+* Some URLs point to IP addresses or hostnames that where set up only for the adaptTo() talk. Remove them or replace them with your own URLs.
+
+
+## 1. Create AEM project by archetype (local)
 
 ```
 mvn archetype:generate -DinteractiveMode=false \
   -DarchetypeGroupId=io.wcm.maven.archetypes \
   -DarchetypeArtifactId=io.wcm.maven.archetypes.aem \
-  -DarchetypeVersion=2.0.0 \
+  -DarchetypeVersion=2.0.1-SNAPSHOT \
   -DprojectName=adaptToDemo2018 \
   -DgroupId=to.adapt \
   -DartifactId=to.adapt.demoapp \
@@ -47,17 +53,17 @@ Build and deploy to local AEM instance using `build-deploy.sh` (the first "npm i
 Open application on author instance: http://localhost:4502/editor.html/content/adaptToDemo2018/en.html
 
 
-## Add distribution management to deploy to our Maven Repository (local)
+## 2. Add distribution management to deploy to our Maven Repository (local)
 
 ```
   <distributionManagement>
     <repository>
       <id>adaptto</id>
-      <url>http://maven-repo.adapt.to:8080/repository/maven-releases/</url>
+      <url>http://52.215.173.143:8080/repository/maven-releases/</url>
     </repository>
     <snapshotRepository>
       <id>adaptto-snapshots</id>
-      <url>http://maven-repo.adapt.to:8080/repository/maven-snapshots/</url>
+      <url>http://52.215.173.143:8080/repository/maven-snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
  ```
@@ -65,23 +71,26 @@ Open application on author instance: http://localhost:4502/editor.html/content/a
 Deploy generated AEM application to Maven repository with `npm clean deploy`.
 
 
-## Generate AEM configuration management project by archetype (AWS or Vagrant)
+## 3. Generate AEM configuration management project by archetype (AWS Control Host)
 
 Put the following files in the directory where you excute the archetype command:
 
-* `license.properties` - AEM license files
+* `license.properties` - AEM license file
 * `id_rsa.pub` - public key that is allowed to connect via SSH to AWS machines
+
+_**Please note:** The Maven Archetype Plugin from Maven Central is missing the required feature [ARCHETYPE-536](https://issues.apache.org/jira/browse/ARCHETYPE-536) - until this feature is released use the unofficial version `3.0.2-180806-A536` as shown below. This is available in the "wcm.io Intermediate Release Repository" described in [wcm.io Maven Repositories](http://wcm.io/maven.html)._
 
 ```
 mvn org.apache.maven.plugins:maven-archetype-plugin:3.0.2-180806-A536:generate -DinteractiveMode=false \
   -DarchetypeGroupId=io.wcm.maven.archetypes \
   -DarchetypeArtifactId=io.wcm.maven.archetypes.aem-confmgmt \
-  -DarchetypeVersion=1.0.0 \
+  -DarchetypeVersion=1.0.1-SNAPSHOT \
   -DconfigurationManagementName=adaptto-demo-2018 \
   -DprojectName=adaptToDemo2018 \
   -DgroupId=to.adapt \
   -DartifactId=to.adapt.demoapp \
   -Dversion=1.0.0-SNAPSHOT \
+  -DawsMachineSize=large \
   -DoptionAnsible=y \
   -DoptionTerraform=y \
   -DoptionVagrant=y \
@@ -89,12 +98,11 @@ mvn org.apache.maven.plugins:maven-archetype-plugin:3.0.2-180806-A536:generate -
   -DaemAdminPassword=YOUR_PASSWORD \
   -DmavenRepositoryUrl=http://52.215.173.143:8080/repository/adaptto/ \
   -DmavenRepositoryUser=adaptto \
-  -DmavenRepositoryPassword=YOUR_PASSWORD
+  -DmavenRepositoryPassword=YOUR_PASSWORD \
+  -DjavaDownloadBaseUrl=http://52.215.173.143/otn-pub/java
 ```
 
-## Create machines via terraform (AWS or Vagrant)
-
-Create terraform state and AWS machines.
+## 4. Create machines via terraform (AWS Control Host)
 
 ```
 cd terraform/terraform-state
@@ -108,22 +116,23 @@ terraform plan -out infrastructure
 terraform apply infrastructure
 ```
 
-## Run Ansible playbook to setup PROD machines (AWS or Vagrant)
+## 5. Run Ansible playbook to setup PROD machines (AWS Control Host)
 
 ```
 cd ansible
 ansible-playbook playbook-setup-prod.yml
 ```
 
-## Put host names for testing in your local host file (local)
+## 6. Put host names for testing in your local host file (local)
 
-As generated to `ansible/files/tmp/hosts` (file to be found on control host - AWS or Vagrant).
+As generated to `ansible/files/tmp/hosts_prod` (file to be found on AWS Control Host).
 
 
-## Ready!
+## 7. Ready!
 
 PROD environment URLs:
 
 * Publish 1: http://publish1.website1.com
 * Publish 2: http://publish2.website1.com
 * Author: https://author.website1.com
+
