@@ -136,3 +136,12 @@ PROD environment URLs:
 * Publish 2: http://publish2.website1.com
 * Author: https://author.website1.com
 
+
+References / Further Links
+--------------------------
+
+* [wcm.io Maven Tooling](http://wcm.io/tooling/maven/)
+* [wcm.io DevOps CONGA](http://devops.wcm.io/conga/)
+* [wcm.io DevOps CONGA Training Materials](http://training.wcm.io/conga/)
+* [wcm.io DevOps Ansible Automation for AEM](http://devops.wcm.io/ansible-aem/)
+* Need Help? Use the [wcm.io Mailing Lists](http://wcm.io/mailing-lists.html)
