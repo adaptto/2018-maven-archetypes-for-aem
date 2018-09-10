@@ -29,7 +29,7 @@ Please note:
 mvn archetype:generate -DinteractiveMode=false \
   -DarchetypeGroupId=io.wcm.maven.archetypes \
   -DarchetypeArtifactId=io.wcm.maven.archetypes.aem \
-  -DarchetypeVersion=2.0.1-SNAPSHOT \
+  -DarchetypeVersion=2.0.2 \
   -DprojectName=adaptToDemo2018 \
   -DgroupId=to.adapt \
   -DartifactId=to.adapt.demoapp \
@@ -84,7 +84,7 @@ _**Please note:** The Maven Archetype Plugin from Maven Central is missing the r
 mvn org.apache.maven.plugins:maven-archetype-plugin:3.0.2-180806-A536:generate -DinteractiveMode=false \
   -DarchetypeGroupId=io.wcm.maven.archetypes \
   -DarchetypeArtifactId=io.wcm.maven.archetypes.aem-confmgmt \
-  -DarchetypeVersion=1.0.1-SNAPSHOT \
+  -DarchetypeVersion=1.0.2 \
   -DconfigurationManagementName=adaptto-demo-2018 \
   -DprojectName=adaptToDemo2018 \
   -DgroupId=to.adapt \
