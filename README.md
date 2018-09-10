@@ -23,7 +23,7 @@ Please note:
 * Some URLs point to IP addresses or hostnames that where set up only for the adaptTo() talk. Remove them or replace them with your own URLs.
 
 
-## 1. Create AEM project by archetype (local)
+### 1. Create AEM project by archetype (local)
 
 ```
 mvn archetype:generate -DinteractiveMode=false \
@@ -53,7 +53,7 @@ Build and deploy to local AEM instance using `build-deploy.sh` (the first "npm i
 Open application on author instance: http://localhost:4502/editor.html/content/adaptToDemo2018/en.html
 
 
-## 2. Add distribution management to deploy to our Maven Repository (local)
+### 2. Add distribution management to deploy to our Maven Repository (local)
 
 ```
   <distributionManagement>
@@ -71,7 +71,7 @@ Open application on author instance: http://localhost:4502/editor.html/content/a
 Deploy generated AEM application to Maven repository with `npm clean deploy`.
 
 
-## 3. Generate AEM configuration management project by archetype (AWS Control Host)
+### 3. Generate AEM configuration management project by archetype (AWS Control Host)
 
 Put the following files in the directory where you excute the archetype command:
 
@@ -102,7 +102,7 @@ mvn org.apache.maven.plugins:maven-archetype-plugin:3.0.2-180806-A536:generate -
   -DjavaDownloadBaseUrl=http://52.215.173.143/otn-pub/java
 ```
 
-## 4. Create machines via terraform (AWS Control Host)
+### 4. Create machines via terraform (AWS Control Host)
 
 ```
 cd terraform/terraform-state
@@ -116,19 +116,19 @@ terraform plan -out infrastructure
 terraform apply infrastructure
 ```
 
-## 5. Run Ansible playbook to setup PROD machines (AWS Control Host)
+### 5. Run Ansible playbook to setup PROD machines (AWS Control Host)
 
 ```
 cd ansible
 ansible-playbook playbook-setup-prod.yml
 ```
 
-## 6. Put host names for testing in your local host file (local)
+### 6. Put host names for testing in your local host file (local)
 
 As generated to `ansible/files/tmp/hosts_prod` (file to be found on AWS Control Host).
 
 
-## 7. Ready!
+### 7. Ready!
 
 PROD environment URLs:
 
