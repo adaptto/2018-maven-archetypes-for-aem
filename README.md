@@ -8,7 +8,7 @@ https://adapt.to/2018/en/schedule/maven-archetypes-for-aem.html
 Requirements
 ------------
 
-* Java 8
+* Java 8 - with Java Cryptography Extension (JCE) Unlimited Strength
 * Maven 3.3.9
 * AEM 6.4
 * AWS
