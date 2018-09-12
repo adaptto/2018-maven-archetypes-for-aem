@@ -147,3 +147,6 @@ References / Further Links
 * [wcm.io DevOps CONGA Training Materials](http://training.wcm.io/conga/)
 * [wcm.io DevOps Ansible Automation for AEM](http://devops.wcm.io/ansible-aem/)
 * Need Help? Use the [wcm.io Mailing Lists](http://wcm.io/mailing-lists.html)
+
+
+[jce-policy]: http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html
