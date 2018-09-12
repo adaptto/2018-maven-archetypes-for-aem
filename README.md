@@ -8,10 +8,12 @@ https://adapt.to/2018/en/schedule/maven-archetypes-for-aem.html
 Requirements
 ------------
 
-* Java 8
+* Java 8 - with Java Cryptography Extension (JCE) Unlimited Strength \*)
 * Maven 3.3.9
 * AEM 6.4
 * AWS
+
+\*) _**Please note:** You need to install the [Java Cryptography Extension (JCE) Unlimited Strength policy files][jce-policy] from Oracle, because Ansible uses 256 bit keys to handle encryption and decryption of the vault files. If you are using Java 8u162 or higher they are already active by default._
 
 
 Demo Steps
